@@ -1,0 +1,35 @@
+customer_id,first_name,last_name,email,phone,birth_date,city,country,postal_code,segment,registration_date,last_login,is_verified,accepts_marketing
+1,Martín,Rodríguez,martín.rodríguez1@email.com,+1 281-204-9565,1997-05-19,Mendoza,Argentina,91454,Platinum,2021-10-29,2021-11-13,false,1
+2,Valentina,García,valentina.garcía2@email.com,+1 891-554-4430,1982-12-05,Santa Fe,Chile,23934,Bronze,2021-01-08,2024-09-03,true,0
+3,Lucía,Fernández,lucía.fernández3@email.com,+1 379-988-9330,1973-11-10,Salta,Argentina,84375,Platinum,2022-05-30,2024-07-09,true,0
+4,Gabriel,Torres,gabriel.torres4@email.com,+1 887-924-3322,1964-05-11,Santa Fe,Argentina,60010,Bronze,2023-12-31,2025-09-09,false,0
+5,Pedro,Torres,pedro.torres5@email.com,+1 698-144-1722,1984-07-22,La Plata,Argentina,61850,Platinum,2023-08-01,2025-07-25,true,0
+6,Camila,Pérez,camila.pérez6@email.com,+1 657-445-4155,2004-03-28,Salta,Colombia,30664,Silver,2020-03-28,2024-09-16,true,1
+7,Valentina,Rodríguez,valentina.rodríguez7@email.com,+1 617-779-4985,1986-10-30,Mendoza,México,58628,Platinum,2023-01-09,2025-11-10,true,1
+8,Juan,Fernández,juan.fernández8@email.com,+1 230-734-6096,1993-04-02,Tucumán,Argentina,53764,Gold,2021-01-12,2025-07-25,true,1
+9,Diego,Rodríguez,diego.rodríguez9@email.com,+1 770-618-7861,1983-07-23,Rosario,Argentina,97035,Gold,2024-04-14,2024-08-13,true,0
+10,Lucas,González,lucas.gonzález10@email.com,+1 682-439-4056,1977-09-20,Córdoba,Argentina,76238,Silver,2021-07-05,2025-02-27,true,0
+11,Lucía,Pérez,lucía.pérez11@email.com,+1 371-311-5619,2005-02-25,Tucumán,Uruguay,66919,Platinum,2021-11-21,2023-03-20,true,1
+12,Juan,Sánchez,juan.sánchez12@email.com,+1 937-879-6130,1980-12-19,Rosario,Argentina,86176,Gold,2021-02-13,2021-04-20,true,0
+13,María,López,maría.lópez13@email.com,+1 460-553-7311,1998-04-04,Tucumán,Argentina,34038,Bronze,2023-05-26,2024-09-01,true,1
+14,Lucas,Rodríguez,lucas.rodríguez14@email.com,+1 746-728-1267,1986-01-27,Tucumán,Argentina,84481,Gold,2022-02-24,2024-11-03,true,0
+15,María,Martínez,maría.martínez15@email.com,+1 843-990-9293,1985-10-01,Mar del Plata,Argentina,98963,Platinum,2021-06-08,2025-06-25,true,1
+16,Valentina,Pérez,valentina.pérez16@email.com,+1 434-282-3448,1960-08-07,Buenos Aires,Argentina,18013,Platinum,2023-07-29,2026-04-05,true,0
+17,Juan,Martínez,juan.martínez17@email.com,+1 873-185-6769,1978-10-11,Mar del Plata,Argentina,44043,Silver,2024-01-26,2025-03-10,true,0
+18,Diego,López,diego.lópez18@email.com,+1 322-657-8836,1966-04-06,Córdoba,Perú,17693,Silver,2024-01-20,2024-01-24,true,1
+19,Lucía,Ramírez,lucía.ramírez19@email.com,+1 871-307-5141,1967-02-05,Buenos Aires,México,35823,Gold,2020-12-03,2024-05-20,true,0
+20,Lucas,Fernández,lucas.fernández20@email.com,+1 596-639-6053,1982-10-19,Córdoba,Chile,73796,Bronze,2021-09-05,2024-07-04,true,0
+21,Carlos,Ramírez,carlos.ramírez21@email.com,+1 783-200-6205,2001-01-12,Santa Fe,Colombia,23079,Gold,2021-06-06,2024-09-20,true,1
+22,Mateo,Sánchez,mateo.sánchez22@email.com,+1 912-277-2565,1983-03-30,Mendoza,Argentina,68700,Platinum,2023-08-17,2025-10-15,true,1
+23,Laura,Fernández,laura.fernández23@email.com,+1 955-851-8915,1978-03-20,Santa Fe,México,80263,Silver,2021-12-07,2025-08-05,false,0
+24,Ana,González,ana.gonzález24@email.com,+1 965-864-4697,1988-07-27,Mar del Plata,Uruguay,24230,Gold,2023-04-09,2025-09-09,true,0
+25,Gabriel,Torres,gabriel.torres25@email.com,+1 771-791-2693,1988-07-31,Tucumán,Colombia,84450,Bronze,2021-04-20,2024-04-11,true,0
+26,Ana,López,ana.lópez26@email.com,+1 666-558-8293,2003-03-09,Salta,Argentina,90174,Platinum,2023-03-04,2025-04-30,true,1
+27,Laura,Rodríguez,laura.rodríguez27@email.com,+1 341-467-8833,1975-12-28,Tucumán,Argentina,70324,Platinum,2020-12-11,2024-08-21,true,0
+28,Martín,López,martín.lópez28@email.com,+1 416-834-2085,1983-06-09,Neuquén,Chile,95599,Silver,2020-04-08,2022-04-27,true,0
+29,Gabriel,García,gabriel.garcía29@email.com,+1 515-932-2500,1981-03-04,La Plata,México,11707,Bronze,2023-10-02,2025-05-10,true,1
+30,Gabriel,Fernández,gabriel.fernández30@email.com,+1 752-429-4149,1970-08-17,Mar del Plata,Argentina,91035,Platinum,2020-08-15,2024-08-29,true,0
+31,Ana,Sánchez,ana.sánchez31@email.com,+1 574-913-8404,2000-07-10,Córdoba,Perú,32092,Silver,2021-06-14,2021-10-03,true,1
+32,Valentina,García,valentina.garcía32@email.com,+1 599-361-1580,1977-06-19,Neuquén,Chile,77515,Bronze,2022-09-26,2022-12-05,true,1
+33,Juan,González,juan.gonzález33@email.com,+1 648-543-2439,1991-01-01,Rosario,Argentina,30793,Gold,2022-07-13,2025-12-04,true,1
+34,Carlos,Sánchez,carlos.sánchez34@email.com,+1 968-503-1745,1967-03-13,Tucumán,Argentina,32907,Platinum,2022-08-16,2022-10-09,false,1

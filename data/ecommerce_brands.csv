@@ -1,0 +1,16 @@
+brand_id,brand_name,country_of_origin,founded_year,website,is_premium
+1,TechPro,China,1981,https://www.techpro.com,false
+2,StyleMax,China,1979,https://www.stylemax.com,false
+3,HomeLife,Argentina,1950,https://www.homelife.com,false
+4,SportElite,Alemania,1955,https://www.sportelite.com,false
+5,BookWorld,Argentina,1960,https://www.bookworld.com,true
+6,FunTime,Alemania,1971,https://www.funtime.com,true
+7,BeautyGlow,China,1994,https://www.beautyglow.com,false
+8,FreshFood,Argentina,1978,https://www.freshfood.com,true
+9,GardenPro,USA,1959,https://www.gardenpro.com,false
+10,AutoParts,Alemania,1997,https://www.autoparts.com,false
+11,GlobalTech,Japón,1974,https://www.globaltech.com,false
+12,PremiumStyle,Japón,2013,https://www.premiumstyle.com,false
+13,QualityHome,Argentina,1952,https://www.qualityhome.com,true
+14,ActiveLife,Brasil,2002,https://www.activelife.com,false
+15,SmartChoice,Japón,1950,https://www.smartchoice.com,false
