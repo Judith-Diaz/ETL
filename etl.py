@@ -94,7 +94,8 @@ print("---------------------------------")
 print("\n Primeras filas de categories:")
 print(df_categories.head())
 print("\n Info de categories:")
-print(df_categories.info())      
+print(df_categories.info())     
+print("---------------------------------") 
 #esto l uso porque no entiendo bien para qeu sirve el campo donde estan los nulls, entonces veo el dataset completo, ay que el anterior ocmando solo me meustar una vista previa.
 pd.set_option('display.max_rows', None)
 print(df_categories)
@@ -115,23 +116,38 @@ df_orders_rellenar['promotion_id'] = df_orders_rellenar['promotion_id'].fillna(0
 #verifico que no haya nulos
 print(df_orders_rellenar.info())
 #verifico que se haya rellenado los nulos
+print("---------verifico que los nulos se hayan rellenado   EN ORDERS   ------------")
 print(df_orders_rellenar.isnull().sum())
 print("------------------cuantos nulos hay en esta tabla categories, porque vi! que habia nulos en parent_category_id---------------")
 print(df_categories.isnull().sum())
-#en este caso en la csv de categories, se observaron cierta incosostenci9a en la realcion de padre-hijo en Alimentos → Juguetes y Automotriz → Juguetes . Por eso decidi eliminarlas
-#Detectar duplicados
+#en este caso en la csv de categories, se observaron cierta incosostenci9a en la realcion de padre-hijo en Alimentos → Juguetes y Automotriz → Juguetes (es decir era un alimeto y decia que pertenecia a juguetes ). Por eso decidi eliminarlas a esas filas
+print("---------veo las filas de categories que tienen nulos en parent_category_id porque presentan inconsistencias, peor decido no borrarlas ya que pueden ser errores de la fuente de datos---------------")
 
-df_categories[df_categories['parent_category_id'].notna()]###
-print("------------------detectar duplicados---------------",df_orders.duplicated().sum())
+#df_categories_borrar_nulos = df_categories[df_categories['parent_category_id'].notna()]
+#print(df_categories_borrar_nulos)
 
-df_orders.duplicated(subset=['order_id'])
-df_order_items.duplicated(subset=['order_item_id'])
-df_customers.duplicated(subset=['customer_id'])
-df_products.duplicated(subset=['product_id'])
-df_reviews.duplicated(subset=['review_id'])
-df_brands.duplicated(subset=['brand_id'])
-df_inventory.duplicated(subset=['inventory_id'])
-df_promotions.duplicated(subset=['promotion_id'])
-df_suppliers.duplicated(subset=['supplier_id'])
-df_warehouses.duplicated(subset=['warehouse_id'])
-df_categories.duplicated(subset=['category_id'])
+#voy a buscar duplicados en todos los csv ,pero solo en columnas especificas
+
+df_orders_clean=df_orders.duplicated(subset=['order_id']).sum()
+print(f"orders: {df_orders_clean}")
+
+df_customers_clean=df_customers.duplicated(subset=['customer_id']).sum()
+print(f"customers: {df_customers_clean}")
+df_products_clean=df_products.duplicated(subset=['product_id']).sum()
+print(f"products: {df_products_clean}")
+df_reviews_clean=df_reviews.duplicated(subset=['review_id']).sum()
+print(f"reviews: {df_reviews_clean}")
+df_order_items_clean=df_order_items.duplicated(subset=['order_item_id']).sum()
+print(f"order_items: {df_order_items_clean}")
+df_brands_clean=df_brands.duplicated(subset=['brand_id']).sum()
+print(f"brands: {df_brands_clean}")
+df_inventory_clean=df_inventory.duplicated(subset=['inventory_id']).sum()
+print(f"inventory: {df_inventory_clean}")
+df_promotions_clean=df_promotions.duplicated(subset=['promotion_id']).sum()
+print(f"promotions: {df_promotions_clean}")
+df_suppliers_clean=df_suppliers.duplicated(subset=['supplier_id']).sum()
+print(f"suppliers: {df_suppliers_clean}")
+df_warehouses_clean=df_warehouses.duplicated(subset=['warehouse_id']).sum()
+print(f"warehouses: {df_warehouses_clean}")
+df_categories_clean=df_categories.duplicated(subset=['category_id']).sum()
+print(f"categories: {df_categories_clean}")
