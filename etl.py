@@ -1,3 +1,4 @@
+from pandas._libs import properties
 import pandas as pd
 import glob
 import os
@@ -214,7 +215,7 @@ for nombre, df in tablas.items():
 
 #voy a segior  creando copias de los archivos asi el original em queda intacto por las dudas, como hice para los balores nulos 
 #para hacer las copias de una uso un diccionario = {
-df_copias_ = {
+df_copias_= {
     "Orders": df_orders,
     "reviews": df_reviews,
     "promocion":df_promotions,
@@ -234,9 +235,39 @@ for nombre,df in df_copias_.items():
 #Empiezo a tarbajar en las tranformaciones , pero sobre las copias que hice
 print("----------------------Empiezo a tarbajar en las tranformaciones , pero sobre las copias que hice----------------------")
 
-#en orders
-df_copias_Orders['order_date']=pd.to_datetime(df_copias_Orders['order_date'])
-df_copias_Orders[order_number]= pd.to_string(df_copias_Orders[order_number])
-#en 
-df_copias_Orders['ship_date']=pd.to_datetime(df_copias_Orders['ship_date'])
-print("----------copia de orders limpiaCreada------------")
+#en orders tenia fecha y estaba como string y lo pase a datetime
+df_copias_['Orders']['order_date']=pd.to_datetime(df_copias_['Orders']['order_date'])
+
+#en promociones tenia fecha y estaba como string y lo pase a datetime
+df_copias_['promocion']['start_date']=pd.to_datetime(df_copias_['promocion']['start_date'])
+df_copias_['promocion']['end_date']=pd.to_datetime(df_copias_['promocion']['end_date'])
+
+#en inventory tenia fecha y estaba como string y lo pase a datetime
+df_copias_['inventory']['last_restock_date']=pd.to_datetime(df_copias_['inventory']['last_restock_date'])
+
+#en customers tenia fechas y estaba como string y lo pase a datetime
+df_copias_['customers']['birth_date']=pd.to_datetime(df_copias_['customers']['birth_date'])
+df_copias_['customers']['registration_date']=pd.to_datetime(df_copias_['customers']['registration_date'])
+df_copias_['customers']['last_login']=pd.to_datetime(df_copias_['customers']['last_login'])
+
+
+#en products  temia fecha y estaba como string y lo pase a datetime
+df_copias_['products']['created_at']=pd.to_datetime(df_copias_['products']['created_at'])
+df_copias_['products']['updated_at']=pd.to_datetime(df_copias_['products']['updated_at'])
+
+#reviews tenia fecha y estaba como string y lo pase a datetime
+df_copias_['reviews']['created_at']=pd.to_datetime(df_copias_['reviews']['created_at'])
+
+#categories tenia actegoria que es numero  y lo tengo como float y lo pase a int
+df_copias_['categories']['parent_category_id']=pd.to_numeric(df_copias_['categories']['parent_category_id'], errors='coerce')
+
+#products tenia fecha estaba como string y lo pase a datetime
+df_copias_['products']['created_at']=pd.to_datetime(df_copias_['products']['created_at'])
+df_copias_['products']['updated_at']=pd.to_datetime(df_copias_['products']['updated_at'])
+
+#reviews tenia fecha estaba como string y lo  pase a datetime
+df_copias_['reviews']['created_at']=pd.to_datetime(df_copias_['reviews']['created_at'])
+
+#verificamos los cambios de los tipos de datos que realizamos
+print("\ncorroboramos los tipos se datos si se cambiaron :",df_copias_['Orders'].dtypes)
+
