@@ -258,16 +258,51 @@ df_copias_['products']['updated_at']=pd.to_datetime(df_copias_['products']['upda
 #reviews tenia fecha y estaba como string y lo pase a datetime
 df_copias_['reviews']['created_at']=pd.to_datetime(df_copias_['reviews']['created_at'])
 
-#categories tenia actegoria que es numero  y lo tengo como float y lo pase a int
+#categories tenia actegoria que es numero  y lo tengo como float y lo pase a int!! 
+'''
+La razón por la que la columna parent_category_id sigue apareciendo como float64 después de usar pd.to_numeric es la presencia de valores nulos (NaN)
+. En Pandas, los números enteros estándar no pueden contener valores nulos; cuando una columna numérica tiene celdas vacías, Pandas la convierte automáticamente a tipo flotante para poder representar esos nulos como NaN
+.
+Para solucionar esto y que la columna sea de tipo entero en tu proceso ETL, tienes dos caminos principales dependiendo de cómo quieras manejar esos nulos:
+ Opción A: Rellenar nulos con 0 y convertir a entero (Recomendada), en fin por esta la conversion aunque la hice sigue siendo float ya que  a los nulos no los borre ni los converti en 0, pero porque la tabla el sentido que tiene no es muy relevante.
+'''
 df_copias_['categories']['parent_category_id']=pd.to_numeric(df_copias_['categories']['parent_category_id'], errors='coerce')
-
-#products tenia fecha estaba como string y lo pase a datetime
-df_copias_['products']['created_at']=pd.to_datetime(df_copias_['products']['created_at'])
-df_copias_['products']['updated_at']=pd.to_datetime(df_copias_['products']['updated_at'])
 
 #reviews tenia fecha estaba como string y lo  pase a datetime
 df_copias_['reviews']['created_at']=pd.to_datetime(df_copias_['reviews']['created_at'])
 
-#verificamos los cambios de los tipos de datos que realizamos
+#verificamos los cambios de los tipos de datos que realizamos de todos los csv
 print("\ncorroboramos los tipos se datos si se cambiaron :",df_copias_['Orders'].dtypes)
+
+#tambien lo po dedemos hacer mas eficicente  que revisar la tabla o ir 1 por 1.Con pandas podemos consultar los tipos de datos de un subconjunto específico 
+# de columnas pasando una lista de nombres entre corchetes dobles, es decir de las columnas ue querramos ocnsultar y ademas lo bueno es que nos parecera el nombre de la ocmlumna cosa que si hacemos ocmo arriva  vemos el resultado
+
+
+print("\n--vericicacion de Orders----------------\n")
+transformaciones_completas_=['order_date']
+print(df_copias_['Orders'][transformaciones_completas_].dtypes)
+
+print("\n--vericicacion de promocion----------------\n")
+transformaciones_completas_=['start_date','end_date']
+print(df_copias_['promocion'][transformaciones_completas_].dtypes)
+
+print("\n--vericicacion de inventory----------------\n")
+transformaciones_completas_=['last_restock_date']
+print(df_copias_['inventory'][transformaciones_completas_].dtypes)
+
+print("\n--vericicacion de customers----------------\n")
+transformaciones_completas_=['birth_date','registration_date','last_login']
+print(df_copias_['customers'][transformaciones_completas_].dtypes)
+
+print("\n--vericicacion de products----------------\n")
+transformaciones_completas_=['created_at','updated_at']
+print(df_copias_['products'][transformaciones_completas_].dtypes)
+
+print("\n--vericicacion de reviews----------------\n")
+transformaciones_completas_=['created_at']
+print(df_copias_['reviews'][transformaciones_completas_].dtypes)
+
+print("\n--vericicacion de categories----------------\n")
+transformaciones_completas_=['parent_category_id']
+print(df_copias_['categories'][transformaciones_completas_].dtypes)
 
