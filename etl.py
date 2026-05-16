@@ -177,3 +177,66 @@ df_categories_clean=df_categories.duplicated(subset=['category_id']).sum()
 print(f"categories: {df_categories_clean}")
 
 print("---------------------corregir lso tipo de datos-----------------------")
+#voy a ver los tipo de datos de cada csv
+print(df_orders.dtypes)
+print(df_customers.dtypes)
+print(df_products.dtypes)
+print(df_reviews.dtypes)
+print(df_order_items.dtypes)
+print(df_brands.dtypes)
+print(df_inventory.dtypes)
+print(df_promotions.dtypes)
+print(df_suppliers.dtypes)
+print(df_warehouses.dtypes)
+print(df_categories.dtypes)
+print("--------------------como ver lso tipo de datos de una forma mas eficiente y no tener qu estar escribiendo 11 lineas----")
+#un bucle (loop). Esto hará que Python recorra cada "caja" y te muestre su información automáticamente.
+#Agrega este código al final de tu script para tener un reporte general:
+# Creamos un diccionario con todas tus tablas para identificarlas por nombre
+tablas = {
+    "Orders": df_orders,
+    "reviews": df_reviews,
+    "promocion":df_promotions,
+    "suppliers":df_suppliers,
+    "warehouses":df_warehouses,
+    "brands":df_brands,
+    "inventory":df_inventory,
+    "customers":df_customers,
+    "products":df_products,
+    "order_items":df_order_items,
+    "categories": df_categories
+}
+
+print("\n--- REVISIÓN GENERAL DE TIPOS DE DATOS ---")
+for nombre, df in tablas.items():
+    print(f"\nTipos de datos en {nombre}:")
+    print(df.dtypes)  # Aquí usamos el atributo dtypes para una vista limpia 
+
+#voy a segior  creando copias de los archivos asi el original em queda intacto por las dudas, como hice para los balores nulos 
+#para hacer las copias de una uso un diccionario = {
+df_copias_ = {
+    "Orders": df_orders,
+    "reviews": df_reviews,
+    "promocion":df_promotions,
+    "suppliers":df_suppliers,
+    "warehouses":df_warehouses,
+    "brands":df_brands,
+    "inventory":df_inventory,
+    "customers":df_customers,
+    "products":df_products,
+    "order_items":df_order_items,
+    "categories": df_categories
+   }
+for nombre,df in df_copias_.items():
+    df_copias_[nombre]=df.copy()
+    print(f"copia creadad para {nombre}")
+
+#Empiezo a tarbajar en las tranformaciones , pero sobre las copias que hice
+print("----------------------Empiezo a tarbajar en las tranformaciones , pero sobre las copias que hice----------------------")
+
+#en orders
+df_copias_Orders['order_date']=pd.to_datetime(df_copias_Orders['order_date'])
+df_copias_Orders[order_number]= pd.to_string(df_copias_Orders[order_number])
+#en 
+df_copias_Orders['ship_date']=pd.to_datetime(df_copias_Orders['ship_date'])
+print("----------copia de orders limpiaCreada------------")
