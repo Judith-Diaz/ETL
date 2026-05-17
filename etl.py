@@ -268,8 +268,7 @@ Para solucionar esto y que la columna sea de tipo entero en tu proceso ETL, tien
 '''
 df_copias_['categories']['parent_category_id']=pd.to_numeric(df_copias_['categories']['parent_category_id'], errors='coerce')
 
-#reviews tenia fecha estaba como string y lo  pase a datetime
-df_copias_['reviews']['created_at']=pd.to_datetime(df_copias_['reviews']['created_at'])
+
 
 #verificamos los cambios de los tipos de datos que realizamos de todos los csv
 print("\ncorroboramos los tipos se datos si se cambiaron :",df_copias_['Orders'].dtypes)
@@ -306,3 +305,45 @@ print("\n--vericicacion de categories----------------\n")
 transformaciones_completas_=['parent_category_id']
 print(df_copias_['categories'][transformaciones_completas_].dtypes)
 
+print("---------Responde preguntas de negocio---------------")
+#TRANSFORM - Respondé preguntas de negocio
+# Desafío: Respondé estas 3 preguntas de negocio: 
+# 1. ¿Cuáles son los 5 clientes que más gastaron?
+#  2. ¿Cuál es el producto más vendido (por cantidad)?
+#  3. ¿Cómo evolucionaron las ventas mes a mes?
+
+print ('1')
+clientes_mas_gastaron=df_copias_['Orders'].groupby('customer_id').agg({'total_amount': 'sum'})
+print("-------------------------------------------")
+print("clientes que mas gastaron")
+print(clientes_mas_gastaron)
+print("-------------------------------------------")
+print("-------------------------------------------")
+print("clientes que mas gastaron ordenados de mayor a menor por la columna total_amount, los 5 primeros")
+#les voy a renombrar las columnas para que sea mas entendible
+clientes_mas_gastaron=clientes_mas_gastaron.rename(columns={
+    'customer_id':'cliente',
+    'total_amount':'total_gastado'
+    })
+print(clientes_mas_gastaron.sort_values(by='total_gastado',ascending=False).head(5))#para que se lieste ordena de froma descendente usamos 'sort_values' y la columna que queremos que tome pàra ordenar '(by='total_amount',ascending=False) y por ultimo cuantas filas queremos que muestres(5)
+
+productos_vendidos_y_cantidad=df_copias_['order_items'].groupby('product_id').agg({
+    'quantity': 'sum',
+    'unit_price': 'sum'
+    })
+print("------------------2-------------------------")
+print("cantidad y precio unitario por producto")
+print(productos_vendidos_y_cantidad)
+print("-------------------------------------------")
+print("-------------------------------------------")
+print("cantidad y precio unitario por producto ordenados de mayor a menor por la columna quantiti, los 5 primeros")
+#voy a renombrar las columnas para que sea mas entendible
+productos_vendidos_y_cantidad=productos_vendidos_y_cantidad.rename(columns={
+    'product_id':'producto',
+    'quantity':'cantidad',
+    'unit_price':'precio_unitario'
+    })
+print(productos_vendidos_y_cantidad.sort_values(by='cantidad',ascending=False).head(5))#para que se lieste ordena de froma descendente usamos 'sort_values' y la columna que queremos que tome pàra ordenar '(by='quantity',ascending=False) y por ultimo cuantas filas queremos que muestres(5)
+#ahora quiero que me digas los 5 productos mas vendidos
+
+#ahora tambien agregamos con un inner join los nombres de los productos
