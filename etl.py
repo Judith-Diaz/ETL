@@ -312,7 +312,7 @@ print("---------Responde preguntas de negocio---------------")
 #  2. ¿Cuál es el producto más vendido (por cantidad)?
 #  3. ¿Cómo evolucionaron las ventas mes a mes?
 
-print ('1')
+print ('1') #adrupamos por customer_id y ademas sumamos total_amount
 clientes_mas_gastaron=df_copias_['Orders'].groupby('customer_id').agg({'total_amount': 'sum'})
 print("-------------------------------------------")
 print("clientes que mas gastaron")
@@ -327,23 +327,37 @@ clientes_mas_gastaron=clientes_mas_gastaron.rename(columns={
     })
 print(clientes_mas_gastaron.sort_values(by='total_gastado',ascending=False).head(5))#para que se lieste ordena de froma descendente usamos 'sort_values' y la columna que queremos que tome pàra ordenar '(by='total_amount',ascending=False) y por ultimo cuantas filas queremos que muestres(5)
 
-productos_vendidos_y_cantidad=df_copias_['order_items'].groupby('product_id').agg({
-    'quantity': 'sum',
-    'unit_price': 'sum'
-    })
-print("------------------2-------------------------")
+print("------------------2--producto más vendido por cantidad----------------------")
 print("cantidad y precio unitario por producto")
-print(productos_vendidos_y_cantidad)
+productos_vendidos_por_cantidad=df_copias_['order_items'].groupby('product_id').agg({
+    'quantity': 'sum',
+    })
+
+print(productos_vendidos_por_cantidad)
 print("-------------------------------------------")
 print("-------------------------------------------")
-print("cantidad y precio unitario por producto ordenados de mayor a menor por la columna quantiti, los 5 primeros")
+print("cantidad vendida por producto ordenados de mayor a menor por la columna quantiti, los 5 primeros")
 #voy a renombrar las columnas para que sea mas entendible
-productos_vendidos_y_cantidad=productos_vendidos_y_cantidad.rename(columns={
+productos_vendidos_por_cantidad=productos_vendidos_por_cantidad.rename(columns={
     'product_id':'producto',
     'quantity':'cantidad',
-    'unit_price':'precio_unitario'
+ 
     })
-print(productos_vendidos_y_cantidad.sort_values(by='cantidad',ascending=False).head(5))#para que se lieste ordena de froma descendente usamos 'sort_values' y la columna que queremos que tome pàra ordenar '(by='quantity',ascending=False) y por ultimo cuantas filas queremos que muestres(5)
+print(productos_vendidos_por_cantidad.sort_values(by='cantidad',ascending=False).head(5))#para que se lieste ordena de froma descendente usamos 'sort_values' y la columna que queremos que tome pàra ordenar '(by='quantity',ascending=False) y por ultimo cuantas filas queremos que muestres(5)
 #ahora quiero que me digas los 5 productos mas vendidos
+print("-------------------------------------------")
+print("-------------------------------------------")
+print(f"\n📦 Producto más vendido: ID {productos_vendidos_por_cantidad.idxmax()} ({productos_vendidos_por_cantidad.max()} unidades)")
+#ahora tambien agregamos con un inner join los nombres de los productos?? 
 
-#ahora tambien agregamos con un inner join los nombres de los productos
+print("----------------------3------evolucion de ventas----------------------")
+#promedio de ventas por mes, osea que noimporta el año, solo los meses enteros 
+#vamos a agrupar  por y sumamaos los totales de ventas( total_amount) por mes (order_date).Primero hagouna clumna nueva para que solo tome meses y años , luego lo agrupo  con la suma de los totales, renombro las columnas.
+df_nuevaColumaMes=df_copias_['Orders']['order_date'].dt.to_period('M')
+df_totales_por_mes=df_copias_['Orders'].groupby(df_nuevaColumaMes).agg({'total_amount': 'sum'}).reset_index()
+df_totales_por_mes=df_totales_por_mes.rename(columns={
+    'order_date':'mes',
+    'total_amount':'total_ventas_mensual'
+    })
+    
+print(df_totales_por_mes)
