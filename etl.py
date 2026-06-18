@@ -2,6 +2,13 @@ from pandas._libs import properties
 import pandas as pd
 import glob
 import os
+import time 
+
+
+# Inicio del cronómetro al empezar el script
+inicio_proceso = time.time()
+
+
 # Verificar que existen los archivos CSV descargados
 archivos = glob.glob('data/ecommerce_*.csv')
 if not archivos:
@@ -361,3 +368,13 @@ df_totales_por_mes=df_totales_por_mes.rename(columns={
     })
     
 print(df_totales_por_mes)
+
+
+#  Fin del cronómetro al terminar la carga
+fin_proceso = time.time()
+
+#  Cálculo de la duración total
+duración_total = fin_proceso - inicio_proceso
+
+print(f"--- ETL Finalizado con éxito ---")
+print(f"Tiempo total de ejecución: {duración_total:.2f} segundos")

@@ -99,3 +99,8 @@ Directorio reservado para los datos ya limpios y listos para visualización o re
    ```bash
    python etl.py
    ```
+
+### Estadísticas de Ejecución
+  
+   Tiempo promedio: 4.5 segundos (para los 11 archivos actuales).
+   Capacidad: Optimizado para procesos de carga diferencial que ahorran tiempo de ejecución al no procesar toda la historia cada vez
