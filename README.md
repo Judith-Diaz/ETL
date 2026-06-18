@@ -60,7 +60,7 @@ Directorio reservado para los datos ya limpios y listos para visualización o re
 ### Paso a Paso
 
 1. **Clonar el repositorio**:
-   Abre una terminal en tu computadora y clona el proyecto con el siguiente comando:
+   Abre una terminal git Bash en tu computadora y clona el proyecto con el siguiente comando:
    ```bash
    git clone https://github.com/Judith-Diaz/ETL.git
    ```
