@@ -117,3 +117,6 @@ Una vez ejecutado el script `etl.py`, encontrarás los siguientes reportes en fo
    Tiempo promedio: 0.71 segundos (para los 11 archivos actuales).
    Capacidad: Optimizado para procesos de carga diferencial que ahorran tiempo de ejecución al no procesar toda la historia cada vez.
 
+## Autor
+[Judith ] - [19/06/2026]
+"""
