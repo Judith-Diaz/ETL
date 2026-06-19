@@ -391,7 +391,7 @@ df_copias_['products'].to_csv('output/products_limpias.csv', index=False)
 df_copias_['reviews'].to_csv('output/reviews_limpias.csv', index=False)
 df_copias_['categories'].to_csv('output/categories_limpias.csv', index=False)
 
-print("✅ Archivos exportados con éxito.")
+print("✅ Archivos CSV guardados en output/ con exito.")
 
 #  Fin del cronómetro al terminar la carga
 fin_proceso = time.time()
