@@ -50,7 +50,7 @@ El código de Python realiza las siguientes tareas de forma automatizada:
 ### 3. `output/` (Destino de datos)
 Directorio reservado para los datos ya limpios y listos para visualización o reportes.
 
----
+
 
 Una vez ejecutado el script `etl.py`, encontrarás los siguientes reportes en formato CSV listos para análisis:
 
