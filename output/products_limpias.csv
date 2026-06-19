@@ -1,0 +1,21 @@
+product_id,sku,product_name,description,category_id,brand_id,supplier_id,price,cost,weight_kg,is_active,created_at,updated_at
+1,SKU-000001,Elite Kit 1,Descripción detallada del producto 1,5,12,5,473.26,250.83,32.9,True,2023-07-21,2025-08-20
+2,SKU-000002,Smart Producto 2,Descripción detallada del producto 2,10,14,5,427.19,239.23,34.6,True,2022-12-13,2025-10-17
+3,SKU-000003,Elite Gadget 3,Descripción detallada del producto 3,7,15,2,387.65,205.45,5.3,True,2023-08-17,2025-08-19
+4,SKU-000004,Mini Set 4,Descripción detallada del producto 4,9,5,2,99.95,67.97,34.0,True,2023-10-25,2025-03-20
+5,SKU-000005,Max Widget 5,Descripción detallada del producto 5,4,7,3,348.82,198.83,3.7,True,2023-02-26,2024-09-20
+6,SKU-000006,Pro Kit 6,Descripción detallada del producto 6,2,7,8,106.23,63.74,41.0,True,2023-06-03,2024-01-11
+7,SKU-000007,Ultra Artículo 7,Descripción detallada del producto 7,3,3,6,177.62,90.59,45.5,False,2023-02-05,2025-03-12
+8,SKU-000008,Elite Producto 8,Descripción detallada del producto 8,2,5,1,352.3,158.54,49.0,True,2023-10-29,2024-04-20
+9,SKU-000009,Pro Kit 9,Descripción detallada del producto 9,8,14,1,432.03,241.94,6.5,True,2022-10-11,2024-02-09
+10,SKU-000010,Super Gadget 10,Descripción detallada del producto 10,7,1,6,128.24,76.94,25.9,True,2022-11-29,2026-04-01
+11,SKU-000011,Ultra Gadget 11,Descripción detallada del producto 11,3,8,8,335.43,171.07,27.0,True,2022-02-14,2025-12-26
+12,SKU-000012,Premium Artículo 12,Descripción detallada del producto 12,10,6,6,317.66,174.71,47.0,True,2023-03-11,2025-10-13
+13,SKU-000013,Mega Gadget 13,Descripción detallada del producto 13,6,5,1,394.63,173.64,31.1,True,2023-08-13,2024-04-18
+14,SKU-000014,Smart Set 14,Descripción detallada del producto 14,5,12,7,171.98,79.11,16.7,True,2023-10-14,2024-01-03
+15,SKU-000015,Elite Gadget 15,Descripción detallada del producto 15,3,15,5,35.19,16.89,48.1,True,2022-01-30,2024-05-29
+16,SKU-000016,Básico Gadget 16,Descripción detallada del producto 16,9,3,3,73.64,44.18,5.7,True,2023-10-15,2026-02-01
+17,SKU-000017,Mini Gadget 17,Descripción detallada del producto 17,5,12,2,222.56,129.08,10.7,True,2022-10-21,2024-10-29
+18,SKU-000018,Super Gadget 18,Descripción detallada del producto 18,1,3,3,173.97,109.6,36.4,True,2022-12-14,2026-01-05
+19,SKU-000019,Elite Herramienta 19,Descripción detallada del producto 19,3,1,4,371.89,163.63,23.8,True,2022-02-04,2025-09-30
+20,SKU-000020,Smart Producto 20,Descripción detallada del producto 20,4,2,5,87.82,59.72,45.8,True,2023-07-26,2025-08-30

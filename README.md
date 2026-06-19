@@ -52,6 +52,15 @@ Directorio reservado para los datos ya limpios y listos para visualización o re
 
 ---
 
+Una vez ejecutado el script `etl.py`, encontrarás los siguientes reportes en formato CSV listos para análisis:
+
+- **top_5_clientes.csv**: Listado de los clientes con mayor volumen de gasto.
+- **ranking_productos.csv**: Reporte de los productos más vendidos,
+- **evolucion_ventas_mensual.csv**: Análisis temporal de los ingresos totales mes a mes.
+- **pedidos_limpios.csv**: La tabla maestra de órdenes tras el proceso de limpieza de nulos y corrección de tipos.
+
+ **Nota:** Los archivos en esta carpeta se sobrescriben en cada ejecución para garantizar que siempre cuentes con la versión más reciente y válida de la información [216, Historial de chat].
+
 ##  Cómo Ejecutar el Proyecto
 
 ### Requisitos Previos
@@ -100,7 +109,10 @@ Directorio reservado para los datos ya limpios y listos para visualización o re
    python etl.py
    ```
 
+
+
 ### Estadísticas de Ejecución
   
-   Tiempo promedio: 4.5 segundos (para los 11 archivos actuales).
+   Tiempo promedio: 0.71 segundos (para los 11 archivos actuales).
    Capacidad: Optimizado para procesos de carga diferencial que ahorran tiempo de ejecución al no procesar toda la historia cada vez
+

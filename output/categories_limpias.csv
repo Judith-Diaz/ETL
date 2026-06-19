@@ -1,0 +1,11 @@
+category_id,category_name,description,parent_category_id,is_active,display_order
+1,Electrónica,Productos de electrónica,,True,1
+2,Ropa,Productos de ropa,,True,2
+3,Hogar,Productos de hogar,,False,3
+4,Deportes,Productos de deportes,,True,4
+5,Libros,Productos de libros,3.0,True,5
+6,Juguetes,Productos de juguetes,,True,6
+7,Belleza,Productos de belleza,,True,7
+8,Alimentos,Productos de alimentos,6.0,True,8
+9,Jardín,Productos de jardín,,True,9
+10,Automotriz,Productos de automotriz,6.0,True,10

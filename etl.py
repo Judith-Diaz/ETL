@@ -370,6 +370,29 @@ df_totales_por_mes=df_totales_por_mes.rename(columns={
 print(df_totales_por_mes)
 
 
+print("--- Guardando reportes de negocio en /output ---")
+# 1. Top 5 Clientes
+clientes_mas_gastaron.head(5).to_csv('output/top_5_clientes.csv', index=False)
+
+# 2. Producto más vendido (con nombres)
+productos_vendidos_por_cantidad.to_csv('output/ranking_productos.csv', index=False)
+
+# 3. Evolución mensual de ventas
+df_totales_por_mes.to_csv('output/evolucion_ventas_mensual.csv', index=False)
+
+
+#  Guardar las tablas maestras limpias (Fase de Staging finalizada) 
+# Ejemplo con la tabla de pedidos ya corregida
+df_copias_['Orders'].to_csv('output/pedidos_limpios.csv', index=False)
+df_copias_['promocion'].to_csv('output/promociones_limpias.csv', index=False)
+df_copias_['inventory'].to_csv('output/inventory_limpias.csv', index=False)
+df_copias_['customers'].to_csv('output/customers_limpias.csv', index=False)
+df_copias_['products'].to_csv('output/products_limpias.csv', index=False)
+df_copias_['reviews'].to_csv('output/reviews_limpias.csv', index=False)
+df_copias_['categories'].to_csv('output/categories_limpias.csv', index=False)
+
+print("✅ Archivos exportados con éxito.")
+
 #  Fin del cronómetro al terminar la carga
 fin_proceso = time.time()
 
