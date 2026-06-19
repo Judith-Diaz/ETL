@@ -99,7 +99,7 @@ Una vez ejecutado el script `etl.py`, encontrarás los siguientes reportes en fo
      ```
 
 5. **Instalar dependencias (Pandas)**:
-   Este comando lee el archivo `requirements.txt` e instala de forma automática la librería **Pandas** (y cualquier otra dependencia del proyecto) dentro de tu entorno virtual:
+   Este comando lee el archivo `requirements.txt` e instala de forma automática la librería **Pandas**, **pyarrow** (y cualquier otra dependencia del proyecto) dentro de tu entorno virtual:
    ```bash
    pip install -r requirements.txt
    ```
@@ -109,9 +109,11 @@ Una vez ejecutado el script `etl.py`, encontrarás los siguientes reportes en fo
    python etl.py
    ```
 
+## Aclaracion
+ Ls archivos Parquet son para consumo de herramientas de BI o procesos automatizados, mientras que los CSV son solo para pre-visualización rápida por usuarios no técnicos
 
 ### Estadísticas de Ejecución
   
    Tiempo promedio: 0.71 segundos (para los 11 archivos actuales).
-   Capacidad: Optimizado para procesos de carga diferencial que ahorran tiempo de ejecución al no procesar toda la historia cada vez
+   Capacidad: Optimizado para procesos de carga diferencial que ahorran tiempo de ejecución al no procesar toda la historia cada vez.
 

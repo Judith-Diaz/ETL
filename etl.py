@@ -388,10 +388,88 @@ df_copias_['promocion'].to_csv('output/promociones_limpias.csv', index=False)
 df_copias_['inventory'].to_csv('output/inventory_limpias.csv', index=False)
 df_copias_['customers'].to_csv('output/customers_limpias.csv', index=False)
 df_copias_['products'].to_csv('output/products_limpias.csv', index=False)
+df_copias_['order_items'].to_csv('output/order_items_limpias.csv', index=False)
+df_copias_['warehouses'].to_csv('output/warehouses_limpias.csv', index=False)
 df_copias_['reviews'].to_csv('output/reviews_limpias.csv', index=False)
 df_copias_['categories'].to_csv('output/categories_limpias.csv', index=False)
+df_copias_['suppliers'].to_csv('output/suppliers_limpias.csv', index=False)
 
 print("✅ Archivos CSV guardados en output/ con exito.")
+
+
+print("\n--- 💾 Iniciando etapa de (LOAD) guardar paquets")
+
+# GUARDAR TABLAS MAESTRAS LIMPIAS (En Parquet para alto rendimiento)
+df_orders_rellenar.to_parquet('output/ecommerce_orders_limpio.parquet', index=False, engine='pyarrow')
+df_customers.to_parquet('output/ecommerce_customers_limpio.parquet', index=False)
+df_products.to_parquet('output/ecommerce_products_limpio.parquet', index=False)
+df_order_items.to_parquet('output/ecommerce_order_items_limpio.parquet', index=False)
+df_reviews.to_parquet('output/ecommerce_reviews_limpio.parquet', index=False)
+df_inventory.to_parquet('output/ecommerce_inventory_limpio.parquet', index=False)
+
+df_categories.to_parquet('output/ecommerce_categories_limpio.parquet', index=False)
+df_promotions.to_parquet('output/ecommerce_promotions_limpio.parquet', index=False)
+df_suppliers.to_parquet('output/ecommerce_suppliers_limpio.parquet', index=False)
+df_warehouses.to_parquet('output/ecommerce_warehouses_limpio.parquet', index=False)
+print("✅ Archivos Parquet guardados en output/ con exito.")
+
+
+#Comparar tamaños de los archivos CSV y Parquet
+tamanio_csv_orders=os.path.getsize('output/pedidos_limpios.csv')/1024
+tamanio_csv_customers=os.path.getsize('output/customers_limpias.csv')/1024
+tamanio_csv_products=os.path.getsize('output/products_limpias.csv')/1024
+tamanio_csv_promotions=os.path.getsize('output/promociones_limpias.csv')/1024
+tamanio_csv_order_items=os.path.getsize('output/order_items_limpias.csv')/1024
+tamanio_csv_reviews=os.path.getsize('output/reviews_limpias.csv')/1024
+tamanio_csv_inventory=os.path.getsize('output/inventory_limpias.csv')/1024
+tamanio_csv_categories=os.path.getsize('output/categories_limpias.csv')/1024
+tamanio_csv_suppliers=os.path.getsize('output/suppliers_limpias.csv')/1024
+tamanio_csv_warehouses=os.path.getsize('output/warehouses_limpias.csv')/1024
+
+tamanio_parquet_orders=os.path.getsize('output/ecommerce_orders_limpio.parquet')/1024
+tamanio_parquet_customers=os.path.getsize('output/ecommerce_customers_limpio.parquet')/1024
+tamanio_parquet_products=os.path.getsize('output/ecommerce_products_limpio.parquet')/1024
+tamanio_parquet_promotions=os.path.getsize('output/ecommerce_promotions_limpio.parquet')/1024
+tamanio_parquet_order_items=os.path.getsize('output/ecommerce_order_items_limpio.parquet')/1024
+tamanio_parquet_reviews=os.path.getsize('output/ecommerce_reviews_limpio.parquet')/1024
+tamanio_parquet_inventory=os.path.getsize('output/ecommerce_inventory_limpio.parquet')/1024
+tamanio_parquet_categories=os.path.getsize('output/ecommerce_categories_limpio.parquet')/1024
+tamanio_parquet_suppliers=os.path.getsize('output/ecommerce_suppliers_limpio.parquet')/1024
+tamanio_parquet_warehouses=os.path.getsize('output/ecommerce_warehouses_limpio.parquet')/1024
+
+
+
+
+print(f"📊 Auditoría de almacenamiento (Orders):")
+print(f"   - Tamaño estimado en CSV: {tamanio_csv_orders:.1f} KB")
+print(f"   - Tamaño real en Parquet: {tamanio_parquet_orders:.1f} KB")
+print(f"📊 Auditoría de almacenamiento (Customers):")
+print(f"   - Tamaño estimado en CSV: {tamanio_csv_customers:.1f} KB")
+print(f"   - Tamaño real en Parquet: {tamanio_parquet_customers:.1f} KB")
+print(f"📊 Auditoría de almacenamiento (Products):")
+print(f"   - Tamaño estimado en CSV: {tamanio_csv_products:.1f} KB")
+print(f"   - Tamaño real en Parquet: {tamanio_parquet_products:.1f} KB")
+print(f"📊 Auditoría de almacenamiento (Promotions):")
+print(f"   - Tamaño estimado en CSV: {tamanio_csv_promotions:.1f} KB")
+print(f"   - Tamaño real en Parquet: {tamanio_parquet_promotions:.1f} KB")
+print(f"📊 Auditoría de almacenamiento (Order Items):")
+print(f"   - Tamaño estimado en CSV: {tamanio_csv_order_items:.1f} KB")
+print(f"   - Tamaño real en Parquet: {tamanio_parquet_order_items:.1f} KB")
+print(f"📊 Auditoría de almacenamiento (Reviews):")
+print(f"   - Tamaño estimado en CSV: {tamanio_csv_reviews:.1f} KB")
+print(f"   - Tamaño real en Parquet: {tamanio_parquet_reviews:.1f} KB")
+print(f"📊 Auditoría de almacenamiento (Inventory):")
+print(f"   - Tamaño estimado en CSV: {tamanio_csv_inventory:.1f} KB")
+print(f"   - Tamaño real en Parquet: {tamanio_parquet_inventory:.1f} KB")
+print(f"📊 Auditoría de almacenamiento (Categories):")
+print(f"   - Tamaño estimado en CSV: {tamanio_csv_categories:.1f} KB")
+print(f"   - Tamaño real en Parquet: {tamanio_parquet_categories:.1f} KB")
+print(f"📊 Auditoría de almacenamiento (Suppliers):")
+print(f"   - Tamaño estimado en CSV: {tamanio_csv_suppliers:.1f} KB")
+print(f"   - Tamaño real en Parquet: {tamanio_parquet_suppliers:.1f} KB")
+print(f"📊 Auditoría de almacenamiento (Warehouses):")
+print(f"   - Tamaño estimado en CSV: {tamanio_csv_warehouses:.1f} KB")
+print(f"   - Tamaño real en Parquet: {tamanio_parquet_warehouses:.1f} KB")
 
 #  Fin del cronómetro al terminar la carga
 fin_proceso = time.time()
