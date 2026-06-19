@@ -69,7 +69,7 @@ Una vez ejecutado el script `etl.py`, encontrarás los siguientes reportes en fo
 ### Paso a Paso
 
 1. **Clonar el repositorio**:
-   Abre una terminal en tu computadora y clona el proyecto con el siguiente comando:
+   Abre una terminal git Bash en tu computadora y clona el proyecto con el siguiente comando:
    ```bash
    git clone https://github.com/Judith-Diaz/ETL.git
    ```
@@ -108,7 +108,6 @@ Una vez ejecutado el script `etl.py`, encontrarás los siguientes reportes en fo
    ```bash
    python etl.py
    ```
-
 
 
 ### Estadísticas de Ejecución
